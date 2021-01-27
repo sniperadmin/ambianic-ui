@@ -6,9 +6,9 @@
       class="pb-5"
       data-cy="template-row"
     >
-      <v-card>
+      <v-card flat>
         <v-card-title
-          class="light grey"
+          class="grey darken-3"
           data-cy="titlecard"
         >
           Ambianic Edge connection details
@@ -37,10 +37,12 @@
                 progress
                 banner-class="text-left"
                 icon="wifi-off"
+                icon-color="info"
                 text="Connecting to Ambianic Edge device..."
               />
               <v-card
                 class="mx-auto text-left"
+                flat
               >
                 <v-list
                   two-line
@@ -76,6 +78,7 @@
               <amb-banner
                 banner-class="text-left"
                 icon="wifi-off"
+                icon-color="pink"
                 text="Let's find your Ambianic Edge device and connect to it..."
               />
               <v-stepper
@@ -131,7 +134,7 @@
             <v-dialog
               max-width="500"
             >
-              <v-card>
+              <v-card flat>
                 <v-card-title class="headline">
                   Reset device pairing?
                 </v-card-title>
@@ -168,14 +171,17 @@
     >
       <v-card>
         <v-card-title
-          class="light grey"
+          class="grey darken-3"
           data-cy="localtitlecard"
         >
           Pair with local Ambianic Edge device
         </v-card-title>
         <v-container grid-list-sm>
           <!-- top column -->
-          <v-card min-width="100">
+          <v-card
+            min-width="100"
+            flat
+          >
             <v-card-text class="text-center">
               <p class="text">
                 [On by default] Discover and pair with an Ambianic Edge device on
@@ -212,7 +218,7 @@
     >
       <v-card>
         <v-card-title
-          class="light grey"
+          class="grey darken-3"
           data-cy="remotetitlecard"
         >
           Pair with remote Ambianic Edge device
@@ -261,8 +267,6 @@
   </v-container>
 </template>
 <script>
-import AmbBanner from '@/components/shared/Banner.vue'
-import AmbListItem from '@/components/shared/ListItem.vue'
 import { mapActions, mapState } from 'vuex'
 import {
   PEER_DISCONNECTED,
@@ -277,6 +281,9 @@ import {
   CHANGE_REMOTE_PEER_ID,
   REMOVE_REMOTE_PEER_ID
 } from '../store/action-types.js'
+
+const AmbBanner = () => import('@/components/shared/Banner.vue')
+const AmbListItem = () => import('@/components/shared/ListItem.vue')
 
 export default {
   components: {

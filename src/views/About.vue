@@ -49,7 +49,7 @@
         </v-layout>
         <v-card-actions>
           <v-btn
-            text
+            outlined
             color="info"
             :to="'timeline'"
             id="btn-timeline"
@@ -58,7 +58,7 @@
           </v-btn>
           <v-spacer />
           <v-btn
-            text
+            outlined
             color="info"
             :to="'settings'"
             id="btn-settings"
@@ -71,8 +71,8 @@
   </v-row>
 </template>
 <script>
-import AmbListItem from '@/components/shared/ListItem.vue'
 import { mapState } from 'vuex'
+const AmbListItem = () => import('@/components/shared/ListItem.vue')
 
 export default {
   components: {
@@ -84,5 +84,4 @@ export default {
     })
   }
 }
-
 </script>
